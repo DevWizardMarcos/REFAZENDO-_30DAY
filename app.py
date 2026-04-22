@@ -1,6 +1,12 @@
 from fastapi import FastAPI # importando o Fast 
+from pydantic import BaseModel # definir o modelo padrao
 
 app = FastAPI() # definindo para as rotas 
+
+
+class Item(BaseModel):
+    nome: str
+
 
 
 # criando a rota  GET  usando um decorador
@@ -33,7 +39,8 @@ def listar_itens(nome = None): # Query Param
 
 @app.post('/itens')
 
-def criarItens(item:dict):
+                # mudando para respoeitar o modelo padrao
+def criarItens(item:Item):
     novoId = len(itens) + 1 #criando novo id 
     item['id'] = novoId # colocando um novo id 
     itens.append(item) # adicionando na lista 
