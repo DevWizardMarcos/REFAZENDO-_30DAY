@@ -1,5 +1,7 @@
 from app import app # importando o arquivo app 
+from app.routers.itens import router #importar a rota
 
+app.include_router(router) # registrar a rota dos itens
 
 if __name__ == "__main__": # se o arquivo esta sendo exutado diretamente 
     import uvicorn
