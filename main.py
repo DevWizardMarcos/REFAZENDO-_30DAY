@@ -1,10 +1,11 @@
 from app import app # importando o arquivo app 
 from app.routers.itens import router #importar a rota
+from app.routers.usuarios import router as usuarios_router # importando a rota de usuarios 
 from app.database import Base, engine 
 
 
 app.include_router(router) # registrar a rota dos itens
-
+app.include_router(usuarios_router) # registrando a rota de usuarios 
 
 Base.metadata.create_all(bind=engine)
 
