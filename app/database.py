@@ -22,3 +22,10 @@ class User(Base):
     senha = Column(String) # hash da senha (nao consigo voltar o valor original quando definida) = hash  →  "$2b$12$Kx8F..."
     ativo = Column(Boolean, default = True)
 
+def get_db():
+    db = SessionLocal() # abrindo uma conexao com o banco de dados
+    try :
+        yield db # entregando a sessao que o usuario pediu (permintido a passagem do usuario)
+    finally:
+        db.close() # fechando a sessao enquanto ela termina 
+        
