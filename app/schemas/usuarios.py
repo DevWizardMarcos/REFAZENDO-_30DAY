@@ -17,6 +17,7 @@ class UsuarioResponse(BaseModel):
 
     class Config:
         from_atributes : True 
-        
+    
+
 
     
